@@ -4,31 +4,31 @@
  * Both types and interfaces can be used together.
  */
 
-interface Pet {
-  name: number;
+export interface Pet {
+  name: string;
 }
 
-interface Dog extends Pet {
+export interface Dog extends Pet {
   pedigree: string;
 }
 
-type Turtle = Pet & {
+export type Turtle = Pet & {
   age: number;
 };
 
-type Branded = {
+export type Branded = {
   brand: string;
 };
 
-type Vehicle = {
+export type Vehicle = {
   type: "ground" | "air" | "water";
 };
 
-type Automobile = Vehicle &
+export type Automobile = Vehicle &
   Branded & {
     topSpeed: number;
   };
 
-interface Ship extends Vehicle, Branded {
+export interface Ship extends Vehicle, Branded {
   topSpeed: number;
 }
