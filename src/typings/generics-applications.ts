@@ -3,14 +3,14 @@
  */
 
 // generates a random number between min and max
-function getRandomNumber(min: number, max: number): number {
+export function getRandomNumber(min: number, max: number): number {
   const difference = max - min;
   const random = Math.random();
   return Math.floor(random * (difference + 1)) + min;
 }
 
 // returns a random type safe element from an array
-function getRandomElement<T>(array: T[]): T {
+export function getRandomElement<T>(array: T[]): T {
   const min = 0;
   const max = array.length - 1;
   const randomIndex = getRandomNumber(min, max);
@@ -18,7 +18,9 @@ function getRandomElement<T>(array: T[]): T {
 }
 
 const names = ["John", "Jane", "Joe", "Jill", "Jack"];
-const numbers = [1, 2, 3, 4, 5, null, false];
+const numbers = [1, 2, 3, 4, 5];
+const things = [1, "Jane", true, { name: "John" }];
 
-const randomName = getRandomElement(names);
-const randomNumber = getRandomElement(numbers);
+export const randomName = getRandomElement(names);
+export const randomNumber = getRandomElement(numbers);
+export const randomThing = getRandomElement(things);

@@ -31,6 +31,7 @@ const dog: Pet = {
  */
 
 type UserId = number | string;
+type ClientId = null | boolean;
 
 /**
  * IdIntersection can only be of type number
@@ -38,3 +39,10 @@ type UserId = number | string;
  * UserId and IdUnion
  */
 type IdIntersection = IdUnion & UserId;
+
+/**
+ * BrokenIdIntersection is of type never because
+ * there is no type that can be a number and string
+ * at the same time
+ */
+type BrokenIdIntersection = number & string;
