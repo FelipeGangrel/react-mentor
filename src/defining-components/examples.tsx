@@ -6,11 +6,11 @@
 
 import { useCallback } from "react";
 
-function MyComponent1() {
+export function MyComponent1() {
   return null;
 }
 
-function MyComponent2() {
+export function MyComponent2() {
   return <div>MyComponent2</div>;
 }
 
@@ -19,7 +19,7 @@ function MyComponent2() {
  */
 
 // This is a invalid component because it can return a function
-const MyComponent3 = (): React.ReactNode => {
+export const MyComponent3 = (): React.ReactNode => {
   const date = new Date();
 
   const myFunction = () => {
@@ -37,11 +37,11 @@ const MyComponent3 = (): React.ReactNode => {
  * Working with typed properties
  */
 
-type MyComponentProps = {
+export type MyComponentProps = {
   value: string;
 };
 
-function MyComponent4(props: MyComponentProps) {
+export function MyComponent4(props: MyComponentProps) {
   const date = new Date();
 
   if (date.getDay() === 0) {
@@ -51,12 +51,12 @@ function MyComponent4(props: MyComponentProps) {
   return <div>{props.value}</div>;
 }
 
-const MyComponent5 = (props: MyComponentProps) => {
+export const MyComponent5 = (props: MyComponentProps) => {
   return <div>{props.value}</div>;
 };
 
 // this is an invalid component because it can return an object
-const MyComponent6: React.FC<MyComponentProps> = (props) => {
+export const MyComponent6: React.FC<MyComponentProps> = (props) => {
   const date = new Date();
 
   if (date.getDay() === 0) {
@@ -66,11 +66,17 @@ const MyComponent6: React.FC<MyComponentProps> = (props) => {
   return <div>{props.value}</div>;
 };
 
-const MyComponent7 = (name: string) => {
+export const MyComponent7 = (name: string) => {
   return <div>Hello: {name}</div>;
 };
 
-const MyComponent8 = ({ name, message }: { message: string; name: string }) => {
+export const MyComponent8 = ({
+  name,
+  message,
+}: {
+  message: string;
+  name: string;
+}) => {
   return (
     <div>
       Hello: {name}, {message}
@@ -78,7 +84,7 @@ const MyComponent8 = ({ name, message }: { message: string; name: string }) => {
   );
 };
 
-const MyComponent9 = () => {
+export const MyComponent9 = () => {
   // you can define your typing like we did here, bt is kinda messy
   const getMessage = useCallback(({ name }: { name: string }) => {
     return `Hello: ${name}`;

@@ -1,16 +1,20 @@
-type GreeterProps = {
+export type GreeterProps = {
   message?: string;
   name: string;
   age: number;
 };
 
-type Greeter = (props: GreeterProps) => string | boolean;
+export type Pet = {
+  age: number;
+};
 
-interface AnotherGreeter {
+export type Greeter = (props: GreeterProps) => string | boolean;
+
+export interface AnotherGreeter {
   (props: GreeterProps): string | boolean;
 }
 
-const greeter1: Greeter = ({ message, name, age }) => {
+export const greeter1: Greeter = ({ message, name, age }) => {
   if (!message) {
     return false;
   }
@@ -18,7 +22,7 @@ const greeter1: Greeter = ({ message, name, age }) => {
   return `${message}, your name is ${name} and your age is ${age}`;
 };
 
-const greeter2: AnotherGreeter = ({ message, name, age }) => {
+export const greeter2: AnotherGreeter = ({ message, name, age }) => {
   if (!message) {
     return false;
   }
