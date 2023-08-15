@@ -59,3 +59,15 @@ const person4: Person2 = {
   name: "John Doe",
   age: 30,
 };
+
+export type Person3 = Female | Male;
+
+const person5: Person3 = {
+  sex: "female",
+  salary: 3000,
+};
+
+const person6: Person3 = {
+  sex: "male",
+  age: 30,
+};
